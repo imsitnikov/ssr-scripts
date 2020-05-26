@@ -11,19 +11,22 @@ const { execSync } = require('child_process');
 const args = process.argv.slice(2);
 
 const scriptIndex = args.findIndex(
-  x => x === 'build' || x === 'start'
+  x => x === 'start' || x === 'build'
 );
 
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 // const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
-if (['build', 'start'].includes(script)) {
+if (['start', 'build'].includes(script)) {
+  const runPath = require.resolve('../scripts/run');
+  const babelNodeConfigPath = require.resolve('../configs/babel-node.config.js');
+
   switch (script) {
-    case 'build':
-      execSync('babel-node ../scripts/run build --config-file ../configs/babel-node.config.js');
-      break;
     case 'start':
-      execSync('babel-node ../scripts/run start --config-file ../configs/babel-node.config.js --silent --inspect');
+      execSync('babel-node ' + runPath + ' start --config-file ' + babelNodeConfigPath + ' --silent --inspect');
+      break;
+    case 'build':
+      execSync('babel-node ' + runPath + ' build --config-file ' + babelNodeConfigPath);
       break;
   }
   // const result = spawn.sync(
