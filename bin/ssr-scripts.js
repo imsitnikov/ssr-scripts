@@ -18,15 +18,16 @@ const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 // const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
 if (['start', 'build'].includes(script)) {
+  let result;
   const runPath = require.resolve('../scripts/run');
   const babelNodeConfigPath = require.resolve('../configs/babel-node.config.js');
 
   switch (script) {
     case 'start':
-      spawnSync('babel-node ' + runPath + ' start --config-file ' + babelNodeConfigPath + ' --silent --inspect');
+      result = spawnSync('babel-node ' + runPath + ' start --config-file ' + babelNodeConfigPath + ' --silent --inspect');
       break;
     case 'build':
-      spawnSync('babel-node ' + runPath + ' build --config-file ' + babelNodeConfigPath);
+      result = spawnSync('babel-node ' + runPath + ' build --config-file ' + babelNodeConfigPath);
       break;
   }
   // const result = spawn.sync(
