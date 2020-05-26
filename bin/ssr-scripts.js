@@ -6,7 +6,7 @@ process.on('unhandledRejection', err => {
   throw err;
 });
 
-const { execSync } = require('child_process');
+const { spawnSync } = require('child_process');
 
 const args = process.argv.slice(2);
 
@@ -23,10 +23,10 @@ if (['start', 'build'].includes(script)) {
 
   switch (script) {
     case 'start':
-      execSync('babel-node ' + runPath + ' start --config-file ' + babelNodeConfigPath + ' --silent --inspect');
+      spawnSync('babel-node ' + runPath + ' start --config-file ' + babelNodeConfigPath + ' --silent --inspect');
       break;
     case 'build':
-      execSync('babel-node ' + runPath + ' build --config-file ' + babelNodeConfigPath);
+      spawnSync('babel-node ' + runPath + ' build --config-file ' + babelNodeConfigPath);
       break;
   }
   // const result = spawn.sync(
