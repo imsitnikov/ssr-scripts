@@ -64,7 +64,7 @@ const start = async () => {
   // Configure client-side hot module replacement
   const clientConfig = webpackConfig.find(config => config.name === 'client');
   clientConfig.entry.client = [
-    './ssr-scripts/_utils/webpack-hot-dev-client',
+    'node_modules/ssr-scripts/_utils/webpack-hot-dev-client',
   ]
     .concat(clientConfig.entry.client)
     .sort((a, b) => b.includes('polyfill') - a.includes('polyfill'));

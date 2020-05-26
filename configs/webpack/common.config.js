@@ -27,7 +27,7 @@ export const commonStylesLoaders = [
     options: {
       sourceMap: true,
       config: {
-        path: './ssr-scripts/configs/postcss.config.js',
+        path: 'node_modules/ssr-scripts/configs/postcss.config.js',
       },
     },
   },
