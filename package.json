@@ -1,7 +1,9 @@
 {
   "name": "ssr-scripts",
   "version": "0.1.0",
-  "private": true,
+  "bin": {
+    "ssr-scripts": "./bin/ssr-scripts.js"
+  },
   "engines": {
     "node": ">=12.16.1"
   },
