@@ -6,6 +6,7 @@ process.on('unhandledRejection', err => {
   throw err;
 });
 
+const path = require('path'); 
 const { execSync } = require('child_process');
 
 const args = process.argv.slice(2);
@@ -18,8 +19,11 @@ const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 // const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
 if (['start', 'build'].includes(script)) {
-  const prefix = __dirname + '../';
+  const prefix = path.resolve(__dirname, '../');
   // const babelNodeConfigPath = require.resolve('./configs/babel-node.config.js');
+
+  console.log(222);
+  console.log('npm run start --prefix ' + prefix);
 
   switch (script) {
     case 'start':
