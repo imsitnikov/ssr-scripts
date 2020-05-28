@@ -22,14 +22,15 @@ if (['start', 'build'].includes(script)) {
   const prefix = path.resolve(__dirname, '../');
   // const babelNodeConfigPath = require.resolve('./configs/babel-node.config.js');
 
-  console.log(222);
-  console.log('npm run start --prefix ' + prefix);
-
   switch (script) {
     case 'start':
+      console.log(123);
+      console.log('npm run start-1 --prefix ' + prefix, { stdio: 'inherit' });
       execSync('npm run start-1 --prefix ' + prefix, { stdio: 'inherit' });
       break;
     case 'build':
+      console.log(123);
+      console.log('npm run build-1 --prefix' + prefix, { stdio: 'inherit' });
       execSync('npm run build-1 --prefix' + prefix, { stdio: 'inherit' });
       break;
   }
