@@ -218,7 +218,7 @@ const start = async () => {
     browserSync.create().init(
       {
         // https://www.browsersync.io/docs/options
-        server: appPaths.public,
+        server: true,
         middleware: [server],
         open: !process.argv.includes('--silent'),
         ...(isDebug ? {} : { notify: false, ui: false }),
