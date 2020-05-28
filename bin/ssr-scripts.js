@@ -52,7 +52,7 @@ if (['start', 'build'].includes(script)) {
   //   }
   //   process.exit(1);
   // }
-  // process.exit(1);
+  process.exit(1);
 } else {
   console.log('Unknown script "' + script + '".');
 }
