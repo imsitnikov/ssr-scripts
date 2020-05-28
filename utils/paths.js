@@ -10,7 +10,7 @@ process.argv.forEach(arg => {
 });
 
 // Пути в приложении
-const appDirectory = fs.realpathSync(appCwd);
+const appDirectory = fs.realpathSync(path.resolve(__dirname, '../'));
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 export const appPaths = {
