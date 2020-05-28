@@ -10,7 +10,7 @@ import errorOverlayMiddleware from 'react-dev-utils/errorOverlayMiddleware';
 import webpackConfig from '../configs/webpack';
 import run, { format } from './run';
 import clean from './clean';
-import { appPaths } from '../_utils/app-paths';
+import { appPaths, packagePaths } from '../utils/paths';
 
 const isDebug = !process.argv.includes('--release');
 
@@ -58,13 +58,13 @@ const start = async () => {
   server.use(errorOverlayMiddleware());
   server.use(
     '/static',
-    express.static(path.resolve(__dirname, appPaths.public)),
+    express.static(appPaths.public),
   );
 
   // Configure client-side hot module replacement
   const clientConfig = webpackConfig.find(config => config.name === 'client');
   clientConfig.entry.client = [
-    'node_modules/ssr-scripts/_utils/webpack-hot-dev-client',
+    `${packagePaths.utils}/webpack-hot-dev-client`,
   ]
     .concat(clientConfig.entry.client)
     .sort((a, b) => b.includes('polyfill') - a.includes('polyfill'));
@@ -217,7 +217,7 @@ const start = async () => {
     browserSync.create().init(
       {
         // https://www.browsersync.io/docs/options
-        server: `${appPaths.src}/server.js`,
+        // server: `${appPaths.src}/server.js`,
         middleware: [server],
         open: !process.argv.includes('--silent'),
         ...(isDebug ? {} : { notify: false, ui: false }),

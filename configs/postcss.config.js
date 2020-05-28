@@ -1,5 +1,7 @@
 /* eslint-disable global-require, import/no-extraneous-dependencies, @typescript-eslint/no-var-requires */
 
+const pkg = require(appPaths.packageJson);
+
 module.exports = () => {
   const isDebug = !process.argv.includes('--release');
 
@@ -53,6 +55,7 @@ module.exports = () => {
       // https://github.com/postcss/autoprefixer
       require('autoprefixer')({
         flexbox: 'no-2009',
+        overrideBrowserslist: pkg.browserslist,
       }),
       ...(isDebug
         ? []

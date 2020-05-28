@@ -2,9 +2,6 @@ export const format = time => {
   return time.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
 };
 
-console.log(123);
-console.log('run');
-
 const run = (fn, options) => {
   const task = typeof fn.default === 'undefined' ? fn : fn.default;
   const start = new Date();

@@ -1,5 +1,5 @@
-import { cleanDir } from '../_utils/fs';
-import { appPaths } from '../_utils/app-paths';
+import { cleanDir } from '../utils/fs';
+import { appPaths } from '../utils/paths';
 
 const clean = () => {
   return Promise.all([

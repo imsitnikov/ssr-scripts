@@ -9,8 +9,8 @@ import common, {
   reImage,
   commonStylesLoaders,
 } from './common.config';
-import { appPaths } from '../../_utils/app-paths';
-import { overrideWebpackRules } from '../../_utils/override-webpack-rules';
+import { appPaths } from '../../utils/paths';
+import { overrideWebpackRules } from '../../utils/override-webpack-rules';
 
 // eslint-disable-next-line import/no-dynamic-require, @typescript-eslint/no-var-requires
 const pkg = require(appPaths.packageJson);

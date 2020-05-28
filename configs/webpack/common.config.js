@@ -2,7 +2,7 @@
 
 import path from 'path';
 import webpack from 'webpack';
-import { appPaths } from '../../_utils/app-paths';
+import { appPaths, packagePaths } from '../../utils/paths';
 
 export const resolvePath = (...args) => path.resolve(appPaths.root, ...args);
 
@@ -27,7 +27,7 @@ export const commonStylesLoaders = [
     options: {
       sourceMap: true,
       config: {
-        path: 'node_modules/ssr-scripts/configs/postcss.config.js',
+        path: `${packagePaths.configs}/postcss.config.js`,
       },
     },
   },
@@ -58,7 +58,7 @@ export default {
   },
 
   module: {
-    // Делаем несуществующие импорты ошибками в не ворнингами
+    // Делаем несуществующие импорты ошибками а не ворнингами
     strictExportPresence: true,
 
     rules: [
@@ -76,7 +76,6 @@ export default {
             configFile: false,
 
             plugins: [
-              // Экспериментальные возможности ECMAScript
               '@babel/plugin-proposal-class-properties',
               '@babel/plugin-syntax-dynamic-import',
               '@babel/plugin-transform-exponentiation-operator',
@@ -90,7 +89,7 @@ export default {
                 : ['@babel/plugin-transform-react-inline-elements']),
             ],
           },
-          babelCore: '@babel/core', // needed for Babel v7
+          babelCore: '@babel/core',
         },
       },
       {
