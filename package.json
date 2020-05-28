@@ -81,7 +81,7 @@
     "source-map-support": "^0.5.19"
   },
   "scripts": {
-    "start-1": "babel-node scripts/run start --config-file ./configs/babel-node.config.js --silent --inspect",
-    "build-1": "babel-node scripts/run build --config-file ./configs/babel-node.config.js"
+    "start": "babel-node scripts/run start --config-file ./configs/babel-node.config.js --silent --inspect",
+    "build": "babel-node scripts/run build --config-file ./configs/babel-node.config.js"
   }
 }
