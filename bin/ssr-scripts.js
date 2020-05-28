@@ -27,10 +27,10 @@ if (['start', 'build'].includes(script)) {
 
   switch (script) {
     case 'start':
-      execSync('npm run start --prefix ' + prefix, { stdio: 'inherit' });
+      execSync('npm run start-1 --prefix ' + prefix, { stdio: 'inherit' });
       break;
     case 'build':
-      execSync('npm run build --prefix' + prefix, { stdio: 'inherit' });
+      execSync('npm run build-1 --prefix' + prefix, { stdio: 'inherit' });
       break;
   }
   // const result = spawn.sync(
@@ -56,7 +56,8 @@ if (['start', 'build'].includes(script)) {
   //   }
   //   process.exit(1);
   // }
-  process.exit(1);
 } else {
   console.log('Unknown script "' + script + '".');
 }
+
+process.exit(1);
