@@ -1,12 +1,11 @@
 /* eslint-disable global-require, import/no-extraneous-dependencies, @typescript-eslint/no-var-requires */
-import { appPaths } from '../utils/paths';
 
-console.log(2);
-console.log(appPaths);
+const path = require('path');
 
+const { appPaths } = require(path.resolve(__dirname, '../utils/paths'));
 const pkg = require(appPaths.packageJson);
 
-export default () => {
+module.exports = () => {
   const isDebug = !process.argv.includes('--release');
 
   return {
