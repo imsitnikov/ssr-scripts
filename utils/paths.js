@@ -9,6 +9,7 @@ process.argv.forEach(arg => {
   }
 });
 
+// Пути в приложении
 const appDirectory = fs.realpathSync(appCwd);
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
@@ -24,14 +25,15 @@ export const appPaths = {
   tsConfig: resolveApp('tsconfig.json'),
 };
 
+// Путь в пакете сборки
 const packageDirectory = fs.realpathSync(process.cwd());
 const resolvePackage = relativePath => path.resolve(packageDirectory, relativePath);
 
 export const packagePaths = {
-  root: resolveApp('.'),
-  scripts: resolveApp('scripts'),
-  configs: resolveApp('configs'),
-  utils: resolveApp('utils'),
-  nodeModules: resolveApp('node_modules'),
-  packageJson: resolveApp('package.json'),
+  root: resolvePackage('.'),
+  scripts: resolvePackage('scripts'),
+  configs: resolvePackage('configs'),
+  utils: resolvePackage('utils'),
+  nodeModules: resolvePackage('node_modules'),
+  packageJson: resolvePackage('package.json'),
 };
