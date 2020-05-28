@@ -1,5 +1,5 @@
 /* eslint-disable global-require, import/no-extraneous-dependencies, @typescript-eslint/no-var-requires */
-import { appPaths } from '../../utils/paths';
+import { appPaths } from '../utils/paths';
 
 const pkg = require(appPaths.packageJson);
 
