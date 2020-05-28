@@ -9,7 +9,7 @@ import { appPaths } from '../_utils/app-paths';
 const pkg = require(appPaths.packageJson);
 
 const copy = async () => {
-  await makeDir('build');
+  await makeDir(appPaths.root + '/build');
   await Promise.all([
     writeFile(
       'build/package.json',
