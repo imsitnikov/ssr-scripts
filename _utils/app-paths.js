@@ -5,6 +5,9 @@ import path from 'path';
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
+console.log(123);
+console.log(appDirectory);
+
 export const appPaths = {
   root: resolveApp('.'),
   src: resolveApp('src'),
