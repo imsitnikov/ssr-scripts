@@ -18,15 +18,15 @@ const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 // const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
 if (['start', 'build'].includes(script)) {
-  const rootPath = require.resolve('../');
+  const prefix = __dirname + '../';
   // const babelNodeConfigPath = require.resolve('./configs/babel-node.config.js');
 
   switch (script) {
     case 'start':
-      execSync('npm run start --prefix ' + rootPath, { stdio: 'inherit' });
+      execSync('npm run start --prefix ' + prefix, { stdio: 'inherit' });
       break;
     case 'build':
-      execSync('npm run build --prefix' + rootPath, { stdio: 'inherit' });
+      execSync('npm run build --prefix' + prefix, { stdio: 'inherit' });
       break;
   }
   // const result = spawn.sync(
