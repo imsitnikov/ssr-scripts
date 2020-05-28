@@ -12,7 +12,7 @@ const copy = async () => {
   await makeDir(appPaths.root + '/build');
   await Promise.all([
     writeFile(
-      'build/package.json',
+      `${appPaths.root}/build/package.json`,
       JSON.stringify(
         {
           private: true,
@@ -26,9 +26,9 @@ const copy = async () => {
         2,
       ),
     ),
-    copyFile(appPaths.packageLockJson, 'build/package-lock.json'),
-    copyFile(appPaths.envDefaults, 'build/.env.defaults'),
-    copyDir(appPaths.public, 'build/public'),
+    copyFile(appPaths.packageLockJson, `${appPaths.root}/build/package-lock.json`),
+    copyFile(appPaths.envDefaults, `${appPaths.root}/build/.env.defaults`),
+    copyDir(appPaths.public, `${appPaths.root}/build/public`),
   ]);
 
   if (process.argv.includes('--watch')) {
