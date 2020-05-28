@@ -13,11 +13,17 @@ if (['start', 'build'].includes(script)) {
   // const runPath = require.resolve('./scripts/run');
   // const babelNodeConfigPath = require.resolve('./configs/babel-node.config.js');
 
+  console.log(123);
+  console.log(script);
   switch (script) {
     case 'start':
+      console.log(123);
+      console.log('exec');
       execSync('npm run start');
       break;
     case 'build':
+      console.log(123);
+      console.log('build');
       execSync('npm run build');
       break;
   }
@@ -44,7 +50,7 @@ if (['start', 'build'].includes(script)) {
   //   }
   //   process.exit(1);
   // }
-  // process.exit(1);
+  process.exit(1);
 } else {
   console.log('Unknown script "' + script + '".');
 }
