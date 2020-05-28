@@ -17,25 +17,16 @@ const scriptIndex = args.findIndex(
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 // const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
-console.log(123);
-console.log('ssr-scripts');
-
 if (['start', 'build'].includes(script)) {
   // const runPath = require.resolve('./scripts/run');
   // const babelNodeConfigPath = require.resolve('./configs/babel-node.config.js');
 
-  console.log(123);
-  console.log(script);
   switch (script) {
     case 'start':
-      console.log(123);
-      console.log('exec');
-      execSync('npm run start');
+      execSync('npm run start', { stdio: 'inherit' });
       break;
     case 'build':
-      console.log(123);
-      console.log('build');
-      execSync('npm run build');
+      execSync('npm run build', { stdio: 'inherit' });
       break;
   }
   // const result = spawn.sync(
