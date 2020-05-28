@@ -10,15 +10,15 @@ const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 // const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
 if (['start', 'build'].includes(script)) {
-  const runPath = require.resolve('./scripts/run');
-  const babelNodeConfigPath = require.resolve('./configs/babel-node.config.js');
+  // const runPath = require.resolve('./scripts/run');
+  // const babelNodeConfigPath = require.resolve('./configs/babel-node.config.js');
 
   switch (script) {
     case 'start':
-      execSync('babel-node ' + runPath + ' start --config-file ' + babelNodeConfigPath + ' --silent --inspect');
+      execSync('npm run start');
       break;
     case 'build':
-      execSync('babel-node ' + runPath + ' build --config-file ' + babelNodeConfigPath);
+      execSync('npm run build');
       break;
   }
   // const result = spawn.sync(
@@ -44,7 +44,7 @@ if (['start', 'build'].includes(script)) {
   //   }
   //   process.exit(1);
   // }
-  process.exit(1);
+  // process.exit(1);
 } else {
   console.log('Unknown script "' + script + '".');
 }

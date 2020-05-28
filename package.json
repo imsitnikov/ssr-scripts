@@ -79,5 +79,9 @@
     "webpack-hot-middleware": "^2.25.0",
     "webpack-node-externals": "^1.6.0",
     "source-map-support": "^0.5.19"
+  },
+  "scripts": {
+    "start": "babel-node scripts/run start --config-file ./configs/babel-node.config.js --silent --inspect",
+    "build": "babel-node scripts/run build --config-file ./configs/babel-node.config.js"
   }
 }
