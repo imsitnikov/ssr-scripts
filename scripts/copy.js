@@ -1,9 +1,9 @@
 import path from 'path';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import chokidar from 'chokidar';
-import { writeFile, copyFile, makeDir, copyDir, cleanDir } from '../_utils/fs';
 import { format } from './run';
-import { appPaths } from '../utils/app-paths';
+import { writeFile, copyFile, makeDir, copyDir, cleanDir } from '../utils/fs';
+import { appPaths } from '../utils/paths';
 
 // eslint-disable-next-line import/no-dynamic-require, @typescript-eslint/no-var-requires
 const pkg = require(appPaths.packageJson);

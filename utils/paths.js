@@ -26,7 +26,7 @@ export const appPaths = {
 };
 
 // Путь в пакете сборки
-const packageDirectory = fs.realpathSync(path.resolve(__dirname, '../'));
+const packageDirectory = fs.realpathSync(process.cwd());
 const resolvePackage = relativePath => path.resolve(packageDirectory, relativePath);
 
 export const packagePaths = {
