@@ -68,6 +68,7 @@ const start = async () => {
   ]
     .concat(clientConfig.entry.client)
     .sort((a, b) => b.includes('polyfill') - a.includes('polyfill'));
+    
   clientConfig.output.filename = clientConfig.output.filename.replace(
     'chunkhash',
     'hash',
