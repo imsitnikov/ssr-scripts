@@ -4,7 +4,7 @@ const { appPaths } = require('../utils/paths');
 
 const pkg = require(appPaths.packageJson);
 
-export default () => {
+module.exports = () => {
   const isDebug = !process.argv.includes('--release');
 
   return {
